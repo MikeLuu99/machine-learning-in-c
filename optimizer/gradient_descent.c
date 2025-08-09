@@ -18,6 +18,7 @@ float gradient_descent_1d(ObjectiveFunction f, GradientFunction df, float initia
     float x = initial_x;
 
     for (int i = 0; i < MAX_ITERATIONS; i++) {
+        printf("Iteration %d: x = %.6f, f(x) = %.6f\n", i, x, f(x));
         float gradient = df(x);
         float new_x = x - LEARNING_RATE * gradient;
 
@@ -44,7 +45,7 @@ int main() {
     printf("Minimizing f(x) = (x-3)^2 + 2\n");
     printf("Expected minimum: x = 3, f(x) = 2\n\n");
 
-    float result = gradient_descent_1d(quadratic_function, quadratic_gradient, 0.0f);
+    float result = gradient_descent_1d(quadratic_function, quadratic_gradient, -2.0f);
     printf("Final result: x = %.6f, f(x) = %.6f\n", result, quadratic_function(result));
 
     return 0;
